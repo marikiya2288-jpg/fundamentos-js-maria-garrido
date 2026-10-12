@@ -7,3 +7,5 @@ subtotal = precio *  cantidad      /*378*/
 console.log(subtotal);
 
 
+let iva = porcentajeIva * precio * cantidad  /*79.38 */
+console.log (iva);

@@ -1,1 +1,2 @@
 Maria Garrido Ramon
+En el ejercicio uno he usado la IA para comprobas si el calculo matematico estaba bien, y a la hora de calcular el raton me daba varios decimales y le he preguntado sobre to.Fixed porque al ponerlo en console.log los numeros habian cambiado a blacon como si fueran string, y me resolvio la duda de que al acortar decimales lo toma como texto.

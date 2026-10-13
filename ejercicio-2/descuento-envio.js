@@ -15,4 +15,11 @@ else {
 }
 
 
+let importeDescuento = importe - descuento
 
+if ( importeDescuento > 50){
+    envio = 0
+}
+else {
+    envio = envio
+}

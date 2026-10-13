@@ -23,3 +23,7 @@ if ( importeDescuento > 50){
 else {
     envio = envio
 }
+total = importeDescuento + envio
+
+console. log( importe, "importe", descuento,"descuento")
+console.log(importeDescuento,"importe con descuento", envio === 0 ? "Gratis" : envio,"envio", total,"total");

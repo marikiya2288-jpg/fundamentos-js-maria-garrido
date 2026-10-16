@@ -5,11 +5,13 @@ const stock = [10, 25, 3, 0, 7];
 let productosAgotados = 0;
 let precioMaximo = precios [0];
 let productoMasCaro = productos [0];
+let valorTotal = 0;
 
 for ( let i = 0 ; i < productos.length; i++) {
     let nombre = productos [i];
     let precioUnidad = precios [i] ;
     let unidad = stock [i];
+valorTotal = valorTotal + (precioUnidad * unidad);
 
     if (unidad === 0){
         console.log (`${nombre} - ${precioUnidad} € - AGOTADO`);
@@ -26,3 +28,4 @@ for ( let i = 0 ; i < productos.length; i++) {
 
 console.log ("productos agotados", productosAgotados);
 console.log (`producto mas caro ${productoMasCaro} - ${precioMaximo.toFixed(2)} €`)
+console.log (`valor total del inventario: ${valorTotal.toFixed(2)} €` )

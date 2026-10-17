@@ -12,7 +12,13 @@ for (let i = 0 ; i < productos.length ; i++) {
         encontrada = i;
       break;
     }
- 
+    /* RETO PARA MOSTRAR MAYUSCULAS Y MINUSCULAS
+    QUITAR EL BREAK ANTERIOR PARA MOSTRAR EL TOLOWECASE!!*/
+  /* if (productos[i].toLowerCase() === busqueda.toLowerCase()){
+    encontrada = i;
+    break;
+   }
+ */  
 }
 
 

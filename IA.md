@@ -27,3 +27,26 @@ Por que encontrada empieza en -1 y como encontrada = i guarda la posicion del pr
 Como funcionan break, if y else en la busqueda.
 La diferencia entre comprobar cada producto dentro del bucle y comprobar el resultado una vez finalizado.
 Como utilizar toLowerCase() para realizar busquedas sin distinguir entre mayusculas y minusculas.
+
+EJERCICIO 5 ; FUNCIONES OBLIGARORIAS;
+Mis preguntas a la IA;
+
+«Me da error en la llave, pero no sé por qué».
+«fundamentos-js-maria-garrido\ejercicio-5\funciones.js:60 ... SyntaxError: Unexpected token '{'».
+Lo que aprendí: que faltaba if antes de la condición y cómo interpretar un error de sintaxis.
+Buscar producto
+
+Mis preguntas:
+«El último ejercicio de buscar producto, ¿me lo explicas?»
+«Me está devolviendo el nombre, no -1»
+«console.log(buscarProducto(productos, "Raton")); me dice -1. ¿Por qué?».
+
+Lo que aprendí: a utilizar length correctamente, evitar el punto y coma después del for, llamar a la función con los argumentos dentro de sus paréntesis y comprobar que el texto buscado coincide con el del array. También entendí que -1 significa que el producto no se encuentra.
+Probar las funciones con datos diferentes
+
+Mis preguntas:
+
+«En estos casos, ¿cómo llamo a la función con distintos datos para mostrar los resultados?»
+«¿Y en el valor total del inventario?»
+«¿Y en el stock?».
+Lo que aprendí: a llamar varias veces a cada función con distintos argumentos y arrays para comprobar que funciona correctamente.

@@ -39,7 +39,9 @@ function calcularDescuento (importe){
         }
     }
     console.log("DESCUENTO");
-   console.log(calcularDescuento(120));/*12*/
+    console.log(calcularDescuento(120));/*12*/
+    console.log(calcularDescuento(50));/*0*/
+    console.log(calcularDescuento(80));/*4*/
 
    function calcularEnvio (importe){
     if ( importe > 50){
@@ -50,7 +52,7 @@ function calcularDescuento (importe){
    }
    console.log("CALULAR ENVIO");
    console.log(calcularEnvio(49.40)); /*4.95*/
-
+   console.log(calcularEnvio(120)); /*0*/
    function contarAgotados (stock){
     let contador = 0;
 
@@ -62,6 +64,7 @@ function calcularDescuento (importe){
    }
    console.log("CALCULAR STOKC")
    console.log(contarAgotados(stock));/*1*/
+   console.log(contarAgotados([2, 0, 5, 0, 0, 9]));/*3*/
  
    function productoMasCaro(productos, precios){
     let masCaro = 0;
@@ -77,6 +80,7 @@ function calcularDescuento (importe){
    console.log("CALCULO PRODUCTO MAS CARO")
 
    console.log(productoMasCaro(productos,precios));/*Monitor*/
+   console.log(productoMasCaro(["Auriculares", "Webcam"],[59.95, 34.50]));/*Auriculares*/
 
    function valorInventario (precios,stock){
     let total = 0;
@@ -85,11 +89,14 @@ function calcularDescuento (importe){
 }
     return total;
 }
+console.log("VALOR TOTAL DE INVENTARIO");
    console.log(valorInventario(precios,stock));/*1765.9*/
+   console.log(valorInventario([189.00, 59.95, 34.50],[3, 0, 7]));/*808.5*/
 
    function buscarProducto (productos,nombre){
 
    let busqueda = "Altavoz";
+   let busqueda1 = " Raton"
    
     for(let i = 0; i < productos.length; i++){
         if (productos[i] === nombre){
@@ -98,4 +105,11 @@ function calcularDescuento (importe){
     }
     return -1;
    }
+   console.log("BUSCARO PRODUCTO");
    console.log(buscarProducto(productos, "Altavoz"));
+   console.log(buscarProducto(productos, "Ratón"));
+   console.log(buscarProducto(productos, "Monitor"));
+
+
+   
+   

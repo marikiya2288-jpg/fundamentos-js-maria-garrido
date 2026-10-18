@@ -65,7 +65,7 @@ function calcularDescuento (importe){
  
    function productoMasCaro(productos, precios){
     let masCaro = 0;
-
+    
     for (let i = 0; i < precios.length; i++) 
 
         if (precios[i] > precios[masCaro]){
@@ -77,3 +77,25 @@ function calcularDescuento (importe){
    console.log("CALCULO PRODUCTO MAS CARO")
 
    console.log(productoMasCaro(productos,precios));/*Monitor*/
+
+   function valorInventario (precios,stock){
+    let total = 0;
+    for (let i = 0 ; i < precios.length;i++){
+      total = total +  precios[i] * stock[i];
+}
+    return total;
+}
+   console.log(valorInventario(precios,stock));/*1765.9*/
+
+   function buscarProducto (productos,nombre){
+
+   let busqueda = "Altavoz";
+   
+    for(let i = 0; i < productos.length; i++){
+        if (productos[i] === nombre){
+            return i;
+        }
+    }
+    return -1;
+   }
+   console.log(buscarProducto(productos, "Altavoz"));

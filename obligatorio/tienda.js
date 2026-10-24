@@ -56,6 +56,47 @@ for (let i = 0; i < pedidoProductos.length; i++) {
         }
     }
 } //* cierre termina el bucle for*/
+
+
+/* FUNCIONES A LLAMAR */
+
 function buscarProducto(nombre) {
-    return productos.indexOf(nombre);
+    return productos.indexOf(nombre); /* con indexof no have falta crear variable, busca directamente. */
+}
+
+function calcularImporteLinea(precio, cantidad) { /*calcula el importe sin iva. */
+    return precio * cantidad;
+}
+
+function calcularDescuento(subtotal) { /* calcula el descuento  */
+    if (subtotal > 100) {
+        return subtotal * 0.10; /*10%*/
+    } else if (subtotal > 50) {
+        return subtotal * 0.05; /*5% */
+    }
+    return 0;
+}
+
+function calcularIVA(baseImponible) { /*calcula la base y le suma el iva. */
+    return baseImponible * 0.21;
+}
+
+function calcularEnvio(baseImponible) { /*calcula el envio */
+    return baseImponible >= 50 ? 0 : 4.95; /* operador ternario al poner dos opciones si es mas 50€ envio gratis si no 4.95 */
+}
+     console.log("===TIKEC===T");
+
+
+
+let subtotal = 0; /*Acumula el dinero que empieza en 0*/
+
+for (let i = 0; i < ticketProductos.length; i++) {
+    
+    const importeLinea = calcularImporteLinea(ticketPrecios[i], ticketCantidades[i]);
+    
+    subtotal = subtotal + importeLinea;     /* Sumamos el importe de este producto al subtotal general*/
+  
+    
+    
+    console.log(`${ticketCantidades[i]}x ${ticketProductos[i]} (${ticketPrecios[i].toFixed(2)}€/ud) - Importe: ${importeLinea.toFixed(2)}€`);
 }

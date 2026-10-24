@@ -100,3 +100,12 @@ for (let i = 0; i < ticketProductos.length; i++) {
     
     console.log(`${ticketCantidades[i]}x ${ticketProductos[i]} (${ticketPrecios[i].toFixed(2)}€/ud) - Importe: ${importeLinea.toFixed(2)}€`);
 }
+
+/*lLLAMADA DE LAS FUNCIONES*/
+const descuento = calcularDescuento(subtotal);  /*Calcula el dinero que te ahorras.*/
+const base      = subtotal - descuento;  /*resultado de restar el subtotal menos el descuento*/
+const iva       = calcularIVA(base); /*calcula el iva 21% */
+const envio     = calcularEnvio(base); /*calcula el envio revisando la funcion para ver que si cumple con envio gratis o no.*/
+const total     = base + iva + envio; /*calcula el pago total */
+
+

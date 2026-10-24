@@ -110,11 +110,11 @@ for (let i = 0; i < ticketProductos.length; i++) {
         maxImporte = importeLinea;
         productoMasCaro = ticketProductos[i];
     }
-    console.log("===RESUMEN PEDIDO==="); /*TOTAL DE UNIDADES SERVIDAS Y EL PRODUCTO MAS CARO DEL TICKET */
+   /*TOTAL DE UNIDADES SERVIDAS Y EL PRODUCTO MAS CARO DEL TICKET */
     console.log(`${ticketCantidades[i]}x ${ticketProductos[i]} (${ticketPrecios[i].toFixed(2)}€/ud) - Importe: ${importeLinea.toFixed(2)}€`);
 }
 
-/*lLLAMADA DE LAS FUNCIONES*/
+/*LLAMADA DE LAS FUNCIONES*/
 const descuento = calcularDescuento(subtotal, cupon);  /*Calcula el dinero que te ahorras--- añado cupon en la llamada para el calculo.*/
 const base      = subtotal - descuento;  /*resultado de restar el subtotal menos el descuento*/
 const iva       = calcularIVA(base); /*calcula el iva 21% */
@@ -133,13 +133,9 @@ console.log(`TOTAL:${total.toFixed(2)}€`);
 
 // RESUMEN DEL PEDIDO (AMPLIACIÓN 2)
 
-console.log("\n--- RESUMEN DEL PEDIDO ---");
+console.log("--- UNIDADES SERVIDAS Y EL PROUDCTO MAS CARO  ---");
 console.log(`Total unidades servidas: ${totalUnidadesServidas}`);
 console.log(`Producto con mayor importe: ${productoMasCaro} (${maxImporte.toFixed(2)}€)`);
-console.log("-----------------------------------------");
-
-console.log("---------------------");
-
 
 /* STOCK ACTUALIZADO Y AGOTADOS*/
 
@@ -159,6 +155,46 @@ for (let i = 0; i < productos.length; i++) {
 console.log(`Productos agotados: ${agotados.join(", ")}`) ;//  lista final separando los nombres por una coma y un espacio
 
 
-// SEGUNDO PEDIDO PRUEBA
-// CAMBIO TEMPORAL PARA COMPROBAR EL ENVÍO
 
+
+console.log("--- 6. PRODUCTOS NO SERVIDOS ---");
+
+const noServidos = [];
+
+for (let i = 0; i < pedidoProductos.length; i++) {
+    const nombrePedido = pedidoProductos[i];
+    const cantPedida = pedidoCantidades[i];
+    
+    // VARIABLES 
+    let encontrado = false; // Nos dice si el producto entró en el ticket
+    let cantServida = 0;    // Guardará las unidades servidas si lo encontramos
+    
+    //  lista del ticket
+    for (let j = 0; j < ticketProductos.length; j++) {
+        if (ticketProductos[j] === nombrePedido) {
+            encontrado = true; // ¡Lo encontramos en stock
+            cantServida = ticketCantidades[j]; // Guardamos cuántos le servimos
+            break; // Salimos porque ya encontramos el producto
+        }
+    }
+    
+    // COMPROBACIONES 
+    if (!encontrado) {
+        //  Si 'encontrado' sigue siendo false, es que no se sirvió NADA
+        noServidos.push(`${nombrePedido} (Faltan: ${cantPedida} uds)`);
+    } else {
+        // Caso B: Se sirvió algo, pero ¿menos de lo que pedía?
+        if (cantServida < cantPedida) {
+            const faltantes = cantPedida - cantServida;
+            noServidos.push(`${nombrePedido} (Faltan: ${faltantes} uds)`);
+        }
+        
+    }
+}
+
+// Mostramos la lista en pantalla
+if (noServidos.length > 0) {
+    console.log(noServidos.join(" • "));
+} else {
+    console.log("¡Todo el pedido ha sido servido al 100%!");
+}

@@ -108,4 +108,14 @@ const iva       = calcularIVA(base); /*calcula el iva 21% */
 const envio     = calcularEnvio(base); /*calcula el envio revisando la funcion para ver que si cumple con envio gratis o no.*/
 const total     = base + iva + envio; /*calcula el pago total */
 
+/* RESULTADOS OPERACIONES */
 
+console.log(`Subtotal:${subtotal.toFixed(2)}€`);
+console.log(`Descuento:${-descuento.toFixed(2)}€`);
+console.log(`Base Imponible: ${base.toFixed(2)}€`);
+console.log(`IVA (21%) ${iva.toFixed(2)}€`);
+console.log(`Envío:${envio === 0 ? "Gratis" : envio.toFixed(2) + "€"}`); /*operador ternario para mostrar si el envio en gratis o no*/
+console.log(`TOTAL:${total.toFixed(2)}€`);
+
+
+console.log("---------------------");

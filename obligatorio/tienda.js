@@ -3,10 +3,10 @@ const precios   = [45.99, 19.90, 189.00, 59.95, 34.50];   // sin IVA
 const stock     = [10, 25, 3, 0, 7];
 
 // Pedido del cliente 
-const pedidoProductos  = ["Ratón"];
-const pedidoCantidades = [ 1];
+const pedidoProductos  = ["Ratón", "Monitor", "Auriculares", "Teclado", "Altavoz"];
+const pedidoCantidades = [2, 4, 1, 1, 1];
 
-
+const cupon = "BIENVENIDA"; 
 
  /* MOSTRAR EL CATÁLOGO INICIAL*/
 
@@ -68,7 +68,14 @@ function calcularImporteLinea(precio, cantidad) { /*calcula el importe sin iva. 
     return precio * cantidad;
 }
 
-function calcularDescuento(subtotal) { /* calcula el descuento  */
+function calcularDescuento(subtotal,codigoCupon) { /* calcula el descuento---- añado codigo cupon para el calculo  */
+    if(codigoCupon === "BIENVENIDA"){
+        console.log(`OK: ¡Cupón "BIENVENIDA" aceptado! Se aplica un 15% de descuento.`);
+    return subtotal * 0.15;
+    }
+    if(codigoCupon !== undefined && codigoCupon !==""){
+             console.log(`AVISO: El cupon "${codigoCupon}" no es valido`);
+    }
     if (subtotal > 100) {
         return subtotal * 0.10; /*10%*/
     } else if (subtotal > 50) {
@@ -102,7 +109,7 @@ for (let i = 0; i < ticketProductos.length; i++) {
 }
 
 /*lLLAMADA DE LAS FUNCIONES*/
-const descuento = calcularDescuento(subtotal);  /*Calcula el dinero que te ahorras.*/
+const descuento = calcularDescuento(subtotal, cupon);  /*Calcula el dinero que te ahorras--- añado cupon en la llamada para el calculo.*/
 const base      = subtotal - descuento;  /*resultado de restar el subtotal menos el descuento*/
 const iva       = calcularIVA(base); /*calcula el iva 21% */
 const envio     = calcularEnvio(base); /*calcula el envio revisando la funcion para ver que si cumple con envio gratis o no.*/

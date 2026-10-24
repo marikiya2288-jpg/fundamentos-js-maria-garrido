@@ -91,20 +91,26 @@ function calcularIVA(baseImponible) { /*calcula la base y le suma el iva. */
 function calcularEnvio(baseImponible) { /*calcula el envio */
     return baseImponible >= 50 ? 0 : 4.95; /* operador ternario al poner dos opciones si es mas 50€ envio gratis si no 4.95 */
 }
-     console.log("===TIKEC===T");
+     console.log("===TIKEC===");
 
 
 
 let subtotal = 0; /*Acumula el dinero que empieza en 0*/
-
+let totalUnidadesServidas = 0; /* Cuenta las unidades totales reales */
+let maxImporte = 0;           /* Guardará el importe de la línea más costosa */
+let productoMasCaro = ""; 
 for (let i = 0; i < ticketProductos.length; i++) {
     
     const importeLinea = calcularImporteLinea(ticketPrecios[i], ticketCantidades[i]);
     
     subtotal = subtotal + importeLinea;     /* Sumamos el importe de este producto al subtotal general*/
   
-    
-    
+      totalUnidadesServidas = totalUnidadesServidas + ticketCantidades[i];
+       if (importeLinea > maxImporte) {
+        maxImporte = importeLinea;
+        productoMasCaro = ticketProductos[i];
+    }
+    console.log("===RESUMEN PEDIDO==="); /*TOTAL DE UNIDADES SERVIDAS Y EL PRODUCTO MAS CARO DEL TICKET */
     console.log(`${ticketCantidades[i]}x ${ticketProductos[i]} (${ticketPrecios[i].toFixed(2)}€/ud) - Importe: ${importeLinea.toFixed(2)}€`);
 }
 
@@ -124,6 +130,13 @@ console.log(`IVA (21%) ${iva.toFixed(2)}€`);
 console.log(`Envío:${envio === 0 ? "Gratis" : envio.toFixed(2) + "€"}`); /*operador ternario para mostrar si el envio en gratis o no*/
 console.log(`TOTAL:${total.toFixed(2)}€`);
 
+
+// RESUMEN DEL PEDIDO (AMPLIACIÓN 2)
+
+console.log("\n--- RESUMEN DEL PEDIDO ---");
+console.log(`Total unidades servidas: ${totalUnidadesServidas}`);
+console.log(`Producto con mayor importe: ${productoMasCaro} (${maxImporte.toFixed(2)}€)`);
+console.log("-----------------------------------------");
 
 console.log("---------------------");
 

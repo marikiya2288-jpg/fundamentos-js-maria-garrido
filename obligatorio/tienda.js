@@ -3,8 +3,8 @@ const precios   = [45.99, 19.90, 189.00, 59.95, 34.50];   // sin IVA
 const stock     = [10, 25, 3, 0, 7];
 
 // Pedido del cliente 
-const pedidoProductos  = ["Ratón", "Monitor", "Auriculares", "Teclado", "Altavoz"];
-const pedidoCantidades = [2, 4, 1, 1, 1];
+const pedidoProductos  = ["Ratón"];
+const pedidoCantidades = [ 1];
 
 
 
@@ -119,3 +119,26 @@ console.log(`TOTAL:${total.toFixed(2)}€`);
 
 
 console.log("---------------------");
+
+
+/* STOCK ACTUALIZADO Y AGOTADOS*/
+
+console.log("--- 5. STOCK FINAL ---");
+const agotados = []; /* productos que se queden a 0*/
+
+for (let i = 0; i < productos.length; i++) {
+    // Imprime el nombre de cada producto y cuántas unidades le quedan tras el pedido
+    console.log(`${productos[i]}: ${stock[i]}`);
+    
+    
+    if (stock[i] === 0) {  /*Si el stock actual es igual a 0, guardamos el nombre en nuestra lista de agotados*/
+        agotados.push(productos[i]);
+    }
+}
+
+console.log(`Productos agotados: ${agotados.join(", ")}`) ;//  lista final separando los nombres por una coma y un espacio
+
+
+// SEGUNDO PEDIDO PRUEBA
+// CAMBIO TEMPORAL PARA COMPROBAR EL ENVÍO
+
